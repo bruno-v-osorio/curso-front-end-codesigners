@@ -1,2 +1,2 @@
 # curso-front-end-codesigners
-Meu primeiro curso de Front End
+Aprenda uma base sólida de HTML, CSS e JS criando um site do zero com foco nos elementos de interface e interações!
