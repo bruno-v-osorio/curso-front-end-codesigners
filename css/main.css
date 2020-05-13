@@ -1,4 +1,5 @@
 /* asterisco afeta todos os elementos do html */
+
 * {
     margin: 0;
     padding: 0;
@@ -193,6 +194,7 @@ p, label {
         background-color: transparent;
         top: 0;
         left: 0;
+        z-index: 900;
     }
 
     .jl-logo{
@@ -254,7 +256,7 @@ p, label {
         line-height: 24px;
         }
 
-    .jl-social-links {
+    .jl-social-links, .jl-social-links-circle {
         width: 100%;
         height: 45px;
         display: block;
@@ -263,10 +265,33 @@ p, label {
         margin-top: 7px;
     }
 
-    .jl-social-links .jl-social {
+    .jl-social-links-circle {
+        left: 0;
+    }
+
+    .jl-social, .jl-social-links-circle .jl-social {
         width: 45px;
         height: 45px;
         display: inline-block;
+    }
+
+    .jl-social-links-circle .jl-social{
+        border-radius: 50%;
+        text-align: center;
+        transition: all 0.2s ease-out;
+    }
+
+    .jl-social-links-circle .jl-social ion-icon {
+        height: 45px;
+        transition: all 0.2s ease-out;
+    }
+
+    .jl-social-links-circle .jl-social:hover {
+        background-color: #000;
+    }
+
+    .jl-social-links-circle .jl-social:hover ion-icon {
+        color: #2CCB69;
     }
 
     .jl-social > img {
@@ -467,14 +492,19 @@ p, label {
         list-style: none;
     }
 
-    .jl-slider-item {
+    
+    .jl-slider-list .jl-portfolio-item {
         display: block;
         height: 500px;
         float: left;
         margin-top: calc(26vh - 75px);
     }
 
-    .jl-portfolio-item-info {
+    .jl-portfolio-list .jl-portfolio-item {
+        margin-bottom: 100px;
+    }
+
+    .jl-slider-list .jl-portfolio-item-info {
         width: calc(100% - 75px);
         display: table;
         margin-top: 73px;
@@ -483,20 +513,28 @@ p, label {
         left: -75px;
     }
 
-    .jl-portfolio-item-thumb {
+    .jl-portfolio-list .jl-portfolio-item-info {
+        width: calc(100% - 75px);
+    }
+
+    .jl-portfolio-list{
+        list-style: none;
+    }
+
+    .jl-slider-list .jl-portfolio-item-thumb, .jl-portfolio-list .jl-portfolio-item-thumb {
         width: 100%;
         display: table;
         padding: 75px 0 19px 0;
         position: relative;
     }
 
-    .jl-portfolio-item-thumb > button {
+    .jl-slider-list .jl-portfolio-item-thumb > button, .jl-portfolio-list .jl-portfolio-item-thumb > button {
         margin-top: 17px;
         margin-right: 75px;
         float: right;
     }
 
-    .jl-portfolio-item-box {
+    .jl-slider-list .jl-portfolio-item-box {
         width: 100%;
         height: 100%;
         display: block;
@@ -508,7 +546,17 @@ p, label {
         transform-origin: right;
     }
 
-    .jl-portfolio-item-thumb img {
+    .jl-portfolio-list .jl-portfolio-item-box {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-color: #2C2C2C;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .jl-slider-list .jl-portfolio-item-thumb img {
         width: 100%;
         max-width: 100%;
         height: auto;
@@ -516,6 +564,170 @@ p, label {
         left: -75px;
         transform: scale(0);
     }
+
+    .jl-portfolio-list .jl-portfolio-item-thumb img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        position: relative;
+        left: -75px;
+    }
+
+
+    /*-----PG-PORTFOLIO ------*/
+
+    .jl-section-offset-top {
+        margin-top: 130px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info {
+        text-align: right;
+        margin-top: 70px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info button {
+        float: right;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-info {
+        margin-left: 105px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) > .row {
+        flex-direction: row-reverse;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb button {
+        float: left;
+        margin-left: 75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb img {
+        left: 75px;
+    }
+
+    /*-----PG-SOBRE ------*/
+
+    #jl-avatar-sobre img {
+        position: relative;
+        left: -15px;
+    }
+
+    /*-----PG-DETALHES ------*/
+
+    .jl-hero {
+        height: 500px;
+        background-image: url('../pages/portfolio/img/hero.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: block;
+    }
+
+    .jl-hero h1 {
+        margin-bottom: 50px;
+    }
+
+    .jl-hero-inner {
+        height: 500px;
+        position: relative;
+    }
+
+    .jl-hero-inner-content {
+        position: relative;
+    }
+
+    .jl-hero-inner-content p  {
+        margin-bottom: 15px;
+    }
+
+    .jl-hero-inner-content:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        display: block;
+        position: absolute;
+        left: -65px;
+        top: -65px;
+        box-sizing: content-box;
+        padding: 65px;
+    }
+
+    .jl-project-stats {
+        width: 100%;
+        height: 100%;
+        display: table;
+        border-right: 1px solid #2CCB69;
+    }
+
+    .jl-post {
+        width: 100%;
+        display: table;
+    }
+
+    .jl-post p {
+        margin-bottom: 30px;
+    }
+
+    .jl-post-section {
+        width: 100%;
+        display: table;
+        padding: 45px 0;
+    }
+
+    .jl-pre-gallery {
+        padding-bottom: 350px;
+    }
+
+    .jl-post-gallery {
+        display: block;
+    }
+
+    .jl-post-gallery .container {
+        position: relative;
+        top: -270px;
+    }
+
+    .jl-gallery-frame-container {
+        width: 400px;
+        display: none;
+        position:fixed;
+        top: 30px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 1100;
+    }
+
+    .jl-gallery-frame-inner {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+    }
+
+    img.jl-gallery-frame {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1300;
+    }
+
+    .jl-gallery-frame-image {
+        width: 87%;
+        max-width: 87%;
+        margin: 0 auto;
+        display: block;
+        z-index: 1200;
+        border-radius: 30px;
+        position: relative;
+        top: 20px;
+    }
+
 
 }
 
@@ -651,22 +863,33 @@ p, label {
     color: #fff;
 }
 
+
 .jl-btn-dark {
-    background-color: #1C1C1C;
+    background-color: #151515;
     color: #2CCB69;
     border: none;
 }
 
 .jl-btn-dark:hover {
-    background-color: #2f2f2f;
-    color: #fff;
+    background-color: #2CCB69;
+    color: #151515;
 }
+
 
 /* CLASSES UTILITÁRIAS */
 
 .jl-title {
     font-family: 'Abril Fatface', serif;
     font-weight: normal;
+}
+
+.jl-subtitle {
+    font-family: 'Open Sans', serif;
+    font-weight: 800;
+}
+
+.jl-title-medium {
+    font-size: 48px;
 }
 
 .jl-title-xlarge {
@@ -691,6 +914,10 @@ p, label {
 
 .jl-text-black {
     color: #000000;
+}
+
+.jl-text-center {
+    text-align: center;
 }
 
 .jl-bg-green {
@@ -801,9 +1028,44 @@ p, label {
 
 .jl-no-padding {
     padding: 0!important;
-
 }
 
+.jl-box-img {
+    width: 100%;
+    display: table;
+}
+
+.jl-img-responsive {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.jl-page-list {
+    list-style: none;
+    font-family: 'Open sans', sans-serif;
+}
+
+.jl-page-list > li {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.jl-page-list > li:before {
+    content:"";
+    width: 8px;
+    height: 8px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    background-color: #2CCB69;
+}
 
 
 /* CLASSES COMPORTAMENTOS JS */
