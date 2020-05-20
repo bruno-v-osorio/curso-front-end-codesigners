@@ -1,2 +1,3 @@
 # curso-front-end-codesigners
-Aprenda uma base sólida de HTML, CSS e JS criando um site do zero com foco nos elementos de interface e interações!
+Front-End Design Essencial - HTML, CSS e JS Completo do Zero | Codesigners
+
