@@ -8,10 +8,16 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap-grid.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
     <title>João Lemon - UX/UI Designer - Portfólio</title>
 </head>
 
 <body>
+
+<div class="jl-trigger-topbar"></div>
+<div class="jl-border-top-left"></div>
+<div class="jl-border-bottom-right"></div>
     
 <!--      PRELOADER      -->
 
@@ -22,24 +28,36 @@
     </div>
 </div>
 
+<div class="jl-menu-overlay  jl-toggle-menu"></div>
+
 <!--      MODAL ORÇAMENTO      -->
 <!--      Apenas na home       -->
 
 <!--      HOME PAGE      -->
 
 <header class="jl-topbar">
-    <div class="jl-logo">
+    <div class="jl-logo jl-logo-big">
         <a href="../index.html"><img src ="../images/logo.svg"  alt="Logo João Lemon UX/UI Designer"/></a>
     </div>
 
     <nav class="jl-menu">
         <a href="../index.html">Home</a>
         <a href="#">Portfólio</a>
-        <a href="sobre.html">Sobre</a>
+        <a href="pages/sobre.html">Sobre</a>
 
     </nav>
 
 </header>
+
+<button class="jl-btn-menu-mob jl-toggle-menu">
+    <ion-icon name="menu-outline"></ion-icon>
+</button>
+
+<nav class="jl-menu-mob jl-menu-is-closed">
+    <a href="../index.html">Home</a>
+    <a href="#">Portfólio</a>
+    <a href="pages/sobre.html">Sobre</a>
+</nav>
 
 <!--      BOTÃO CONTATO      -->
 
@@ -80,18 +98,18 @@
                     <ul class="jl-portfolio-list">
                         <li class="jl-portfolio-item" data-slide="1">
                             <div class="row">
-                                <div class="col-sm-5">
+                                <div class="col-sm-12 col-lg-5 order-2 order-lg-1">
                                     <div class="jl-portfolio-item-info jl-text-light" data-aos-delay="200" data-aos="fade-right">
                                         <h1 class="jl-title-large jl-mar-bottom-15">Startup Rocketz Website</h1>
                                         <p class="jl-mar-bottom-30">UX, UI e WordPress para aceleradora de startups.</p>
-                                        <button class="jl-btn jl-btn-large jl-btn-green">ver projeto</button>
+                                        <a href="#" class="jl-btn jl-btn-large jl-btn-green">ver projeto</a>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-12 col-lg-6 offset-lg-1 order-1 order-lg-2">
                                     <div class="jl-portfolio-item-thumb">
-                                        <div class="jl-portfolio-item-box" data-aos="zoom-in"></div>
+                                        <div class="jl-portfolio-item-box d-none d-lg-block" data-aos="zoom-in"></div>
                                         <img src="../images/thumb-1.jpg" alt="Startup Rocketz" title="Startup Rockets" data-aos="flip-left" data-aos-offset="300" data-aos-delay="300"/>
-                                        <button class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></button>
+                                        <a href="#" class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></a>
                                     </div>
                                 </div>
                             </div>
@@ -99,20 +117,20 @@
 
                            <li class="jl-portfolio-item" data-slide="2">
                               <div class="row">
-                                  <div class="col-sm-5">
+                                  <div class="col-sm-12 col-lg-6 order-2 order-lg-1">
                                       <div class="jl-portfolio-item-info jl-text-light" data-aos-delay="200" data-aos="fade-left">
                                           <h1 class="jl-title jl-title-large jl-mar-bottom-15">Manage It!
                                               Aplicativo Mobile</h1>
                                           <p class="jl-mar-bottom-30">UX, UI e Protipação para aplicativo mobile.
                                           </p>
-                                          <button class="jl-btn jl-btn-large jl-btn-green">ver projeto</button>
+                                          <a href="#" class="jl-btn jl-btn-large jl-btn-green">ver projeto</a>
                                       </div>
                                   </div>
-                                  <div class="col-sm-6">
+                                  <div class="col-sm-12 col-lg-6 order-1 order-lg-2">
                                       <div class="jl-portfolio-item-thumb">
-                                          <div class="jl-portfolio-item-box" data-aos="zoom-in"></div>
+                                          <div class="jl-portfolio-item-box d-none d-lg-block" data-aos="zoom-in"></div>
                                           <img src="../images/thumb-2.jpg" alt="Manage It!" title="Manage It!" data-aos="flip-left" data-aos-offset="300" data-aos-delay="300"/>
-                                          <button class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></button>
+                                          <a href="#" class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></a>
                                       </div>
                                   </div>
                               </div>
@@ -121,20 +139,20 @@
 
                           <li class="jl-portfolio-item" data-slide="3">
                               <div class="row">
-                                  <div class="col-sm-5">
+                                  <div class="col-sm-12 col-lg-5 order-2 order-lg-1">
                                       <div class="jl-portfolio-item-info jl-text-light" data-aos-delay="200" data-aos="fade-right">
                                           <h1 class="jl-title jl-title-large jl-mar-bottom-15">Vinyassa!
                                               Aplicativo Mobile</h1>
                                           <p class="jl-mar-bottom-30">UX, UI e Protipação para aplicativo mobile.
                                           </p>
-                                          <button class="jl-btn jl-btn-large jl-btn-green">ver projeto</button>
+                                          <a href="#" class="jl-btn jl-btn-large jl-btn-green">ver projeto</a>
                                       </div>
                                   </div>
-                                  <div class="col-sm-6">
+                                  <div class="col-sm-12 col-lg-6 offset-lg-1 order-1 order-lg-2">
                                       <div class="jl-portfolio-item-thumb">
-                                          <div class="jl-portfolio-item-box" data-aos="zoom-in"></div>
+                                          <div class="jl-portfolio-item-box d-none d-lg-block" data-aos="zoom-in"></div>
                                           <img src="../images/thumb-3.jpg" alt="Vinyassa App" title="Vinyassa App" data-aos="flip-left" data-aos-offset="300" data-aos-delay="300"/>
-                                          <button class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></button>
+                                          <a href="#" class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></a>
                                       </div>
                                   </div>
                               </div>
@@ -143,20 +161,20 @@
 
                           <li class="jl-portfolio-item" data-slide="4">
                               <div class="row">
-                                  <div class="col-sm-5">
+                                  <div class="col-sm-12 col-lg-6 order-2 order-lg-1">
                                       <div class="jl-portfolio-item-info jl-text-light" data-aos-delay="200" data-aos="fade-left">
                                           <h1 class="jl-title jl-title-large jl-mar-bottom-15">Conteúdo é Rei!
                                               Website para agência.</h1>
                                           <p class="jl-mar-bottom-30">Website para agência de conteúdo digital.
                                           </p>
-                                          <button class="jl-btn jl-btn-large jl-btn-green">ver projeto</button>
+                                          <a href="#" class="jl-btn jl-btn-large jl-btn-green">ver projeto</a>
                                       </div>
                                   </div>
-                                  <div class="col-sm-6">
+                                  <div class="col-sm-12 col-lg-6 order-1 order-lg-2">
                                       <div class="jl-portfolio-item-thumb">
-                                          <div class="jl-portfolio-item-box" data-aos="zoom-in"></div>
+                                          <div class="jl-portfolio-item-box d-none d-lg-block" data-aos="zoom-in"></div>
                                           <img src="../images/thumb-4.jpg" alt="Conteúdo é Rei!" title="Conteúdo é Rei!" data-aos="flip-left" data-aos-offset="300" data-aos-delay="300"/>
-                                          <button class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></button>
+                                          <a href="#" class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></a>
                                       </div>
                                   </div>
                               </div>
@@ -165,19 +183,19 @@
 
                           <li class="jl-portfolio-item" data-slide="5">
                               <div class="row">
-                                  <div class="col-sm-5">
+                                  <div class="col-sm-12 col-lg-5 order-2 order-lg-1">
                                       <div class="jl-portfolio-item-info jl-text-light" data-aos-delay="200" data-aos="fade-right">
                                           <h1 class="jl-title jl-title-large jl-mar-bottom-15">Controle Total. Web
                                               App</h1>
                                           <p class="jl-mar-bottom-30">UX, UI e Protipação para aplicativo web.</p>
-                                          <button class="jl-btn jl-btn-large jl-btn-green">ver projeto</button>
+                                          <a href="#" class="jl-btn jl-btn-large jl-btn-green">ver projeto</a>
                                       </div>
                                   </div>
-                                  <div class="col-sm-6">
+                                  <div class="col-sm-12 col-lg-6 offset-lg-1 order-1 order-lg-2">
                                       <div class="jl-portfolio-item-thumb">
-                                          <div class="jl-portfolio-item-box" data-aos="zoom-in"></div>
+                                          <div class="jl-portfolio-item-box d-none d-lg-block" data-aos="zoom-in"></div>
                                           <img src="../images/thumb-5.jpg" alt="Controle Total" title="Controle Total" data-aos="flip-left" data-aos-offset="300" data-aos-delay="300"/>
-                                          <button class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></button>
+                                          <a href="#" class="jl-btn jl-btn-medium jl-btn-dark">visitar site<ion-icon name="arrow-redo"></ion-icon></a>
                                       </div>
                                   </div>
                               </div>
@@ -192,7 +210,7 @@
 
 <!--      SCRIPTS      -->
 
-<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="../js/main.js"></script>
 

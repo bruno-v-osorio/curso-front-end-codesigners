@@ -59,20 +59,16 @@ for(var i = 0; i < toggleModal.length; i++) {
     });
 }
 
-
-// Diminuindo o tamanho vertical na página para não ficar sobrando
-var postGallery = document.querySelector('.jl-post-gallery');
-var postGalleryHeight = postGallery.clientHeight;
-postGallery.style.height = (postGalleryHeight - 270) +'px';
-
-
-
-// Animando Elementos on Scroll com waypoint
-var myScrollDown = document.querySelector('.jl-scroll-down');
+// Animando Elementos da topbar
+var triggerTopbar = document.querySelector('.jl-trigger-topbar');
+var topbar = document.querySelector('.jl-topbar');
+var logo = document.querySelector('.jl-logo');
 var waypoint = new Waypoint({
-    element: myScrollDown,
+    element: triggerTopbar,
     handler: function() {
-        myScrollDown.classList.toggle('jl-fade-out');
+       topbar.classList.toggle('jl-topbar-bg');
+       logo.classList.toggle('jl-logo-shorten');
+       logo.classList.toggle('jl-logo-big');
         },
-    offset: '80%'
-  });
+    offset: '50px'
+});  

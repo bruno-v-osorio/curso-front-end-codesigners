@@ -99,6 +99,105 @@ p, label {
     }
 } 
 
+@keyframes topbarBg {
+    from {
+        background: transparent;
+    }
+    to {
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+100;Neutral+Density */
+background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+    }
+} 
+
+@keyframes logoShorten {
+    from {
+        top: 0;
+    }
+    to {
+        top: -28px;
+    }
+} 
+
+@keyframes logoBig {
+    from {
+        top: -28px;
+    }
+    to {
+        top: 0;
+    }
+} 
+
+.jl-trigger-topbar {
+    width: 1px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 130px;
+    background: transparent;
+}
+
+.jl-border-top-left, .jl-border-bottom-right {
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: fixed;
+    z-index: 800;
+}
+
+.jl-border-top-left {
+    top: 0;
+    left: 0;
+}
+
+.jl-border-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+.jl-border-top-left:before, .jl-border-top-left:after {
+    content:'';
+    display: block;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.jl-border-top-left:before {
+    width: 30px;
+    height: 100vh;
+}
+
+.jl-border-top-left:after {
+    width: 100vh;
+    height: 30px;
+}
+
+.jl-border-bottom-right:before, .jl-border-bottom-right:after {
+    content:'';
+    display: block;
+    background-color: #000;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.jl-border-bottom-right:before {
+    width: 30px;
+    height: 100vw;
+}
+
+.jl-border-bottom-right:after {
+    width: 100vw;
+    height: 30px;
+}
+
+
 
 @media screen and (min-width: 320px) {
 
@@ -138,11 +237,11 @@ p, label {
     }
 
     .jl-modal {
-        width: 800px;
+        width: 90%;
         display: none;
         padding: 30px;
         border-radius: 0 30px 30px 30px;
-        position: fixed;
+        position: absolute;
         top: -100%;
         left: 0;
         right: 0;
@@ -155,6 +254,10 @@ p, label {
         width: 100%;
         display: table;
         position: relative;
+    }
+
+    .jl-modal-header h1 {
+        line-height: 28px;
     }
 
     .jl-close-modal {
@@ -173,8 +276,8 @@ p, label {
     }
 
     .jl-form label {
-        margin-bottom: 10px;
-        font-size: 16px;
+        margin-bottom: 3px;
+        font-size: 14px;
         display: inline-block;
     }
 
@@ -184,8 +287,10 @@ p, label {
         background-color: #2f2f2f;
         border-radius: 4px;
         color: #fff;
-        border: none;font-size: 16px;
+        border: none;
+        font-size: 16px;
         text-indent: 15px;
+        margin-bottom: 7px;
     }
 
     .jl-field {
@@ -196,12 +301,16 @@ p, label {
         width: 100%;
         height: 110px;
         display: block;
-        background-color: red;
+        background: transparent;
         position: fixed;
-        background-color: transparent;
         top: 0;
         left: 0;
         z-index: 900;
+        transition: all 0.2s ease-out;
+    }
+
+    .jl-topbar-bg {
+        animation: topbarBg 0.2s ease-out forwards;
     }
 
     .jl-logo{
@@ -211,6 +320,16 @@ p, label {
         margin-left: 60px;
         background-color: #2CCB69;
         border-radius: 0 0 37px 0;
+        transition: all 0.2s ease-out;
+        position: relative;
+    }
+
+    .jl-logo-big {
+        animation: logoBig 0.2s ease-out forwards;
+    }
+
+    .jl-logo-shorten {
+        animation: logoShorten 0.2s ease-out forwards;
     }
 
     .jl-logo img {
@@ -411,7 +530,7 @@ p, label {
 
     .jl-scroll-down {
         width: 70px;
-        height: 105px;
+        height: 135px;
         border-radius: 35px 35px 0 0;
         background-color: #2CCB69;
         display: block;
@@ -463,12 +582,13 @@ p, label {
     /*------ HOME - PORTFOLIO ------ */
 
     .jl-portfolio-navigator{
-        width: 145px;
-        height: 400px;
+        width: 68%;
+        height: auto;
         display: table;
         position: absolute;
         left: 15px;
-        top: 26vh;
+        bottom: 15px;
+        z-index: 1100;
     }
 
     .jl-navigator-counter {
@@ -523,7 +643,7 @@ p, label {
         width: 100%;
         height: 45px;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         background-color: #2C2C2C;
         border-radius: 23px;
@@ -557,11 +677,11 @@ p, label {
     .jl-slider-container {
         display: block;
         overflow: hidden;
+        padding-bottom: 120px;
     }
 
     .jl-slider-list {
         width: auto;
-        height: 700px;
         display: block;
         list-style: none;
     }
@@ -569,43 +689,61 @@ p, label {
     
     .jl-slider-list .jl-portfolio-item {
         display: block;
-        height: 500px;
+        height: auto;
         float: left;
-        margin-top: calc(26vh - 75px);
+        margin-top: 0;
     }
 
     .jl-portfolio-list .jl-portfolio-item {
-        margin-bottom: 100px;
+        margin-bottom: 30px;
     }
 
     .jl-slider-list .jl-portfolio-item-info {
-        width: calc(100% - 75px);
+        width: 100%;
         display: table;
-        margin-top: 73px;
+        margin-top: 15px;
         position: relative;
         opacity: 0;
-        left: -75px;
     }
 
     .jl-portfolio-list .jl-portfolio-item-info {
-        width: calc(100% - 75px);
+        width: 100%;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item-info p {
+        text-align: center;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item-info .jl-btn {
+        margin: 0 auto;
     }
 
     .jl-portfolio-list{
         list-style: none;
     }
 
-    .jl-slider-list .jl-portfolio-item-thumb, .jl-portfolio-list .jl-portfolio-item-thumb {
+    .jl-slider-list .jl-portfolio-item-thumb {
+        width: 100%;
+        display: table;
+        padding: 30px 0 19px 0;
+        position: relative;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item-thumb {
         width: 100%;
         display: table;
         padding: 75px 0 19px 0;
         position: relative;
     }
 
-    .jl-slider-list .jl-portfolio-item-thumb > button, .jl-portfolio-list .jl-portfolio-item-thumb > button {
-        margin-top: 17px;
-        margin-right: 75px;
-        float: right;
+    .jl-slider-list .jl-portfolio-item-thumb > .jl-btn {
+        margin: 17px auto 0 auto;
+        float: none;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item-thumb > .jl-btn {
+        margin: 17px auto 0 auto;
+        float: none;
     }
 
     .jl-slider-list .jl-portfolio-item-box {
@@ -631,11 +769,11 @@ p, label {
     }
 
     .jl-slider-list .jl-portfolio-item-thumb img {
-        width: 100%;
+        width: 90%;
         max-width: 100%;
         height: auto;
         position: relative;
-        left: -75px;
+        left: 5%;
         transform: scale(0);
     }
 
@@ -644,7 +782,6 @@ p, label {
         max-width: 100%;
         height: auto;
         position: relative;
-        left: -75px;
     }
 
 
@@ -654,43 +791,65 @@ p, label {
         margin-top: 130px;
     }
 
-    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info {
-        text-align: right;
-        margin-top: 70px;
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info .jl-btn, .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-info .jl-btn  {
+        float: none;
+        margin: 0 auto;
     }
 
-    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info button {
-        float: right;
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info p, .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-info p  {
+        text-align: center;
     }
 
     .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-info {
-        margin-left: 105px;
+        width: 100%;
+        margin-left: 0;
     }
 
     .jl-portfolio-list .jl-portfolio-item:nth-child(even) > .row {
         flex-direction: row-reverse;
     }
 
-    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb button {
-        float: left;
-        margin-left: 75px;
-    }
-
+    
     .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb img {
-        left: 75px;
+        display: block;
     }
 
     /*-----PG-SOBRE ------*/
 
-    #jl-avatar-sobre img {
-        position: relative;
-        left: -15px;
+    .jl-section-sobre {
+        height: calc(100% - 130px);
     }
+
+    .jl-section-sobre .container-fluid, .jl-section-sobre .container-fluid > .row  {
+        height: 100%;
+    }
+
+    .jl-avatar-sobre {
+        position: relative;
+        height: 430px;
+    }
+
+    .jl-box-img {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    .jl-titulo-sobre, .jl-info-sobre, .jl-premios-sobre {
+        width: 100%;
+        display: table;
+        float: left;
+        margin-bottom: 30px;
+    }
+
+    
+
 
     /*-----PG-DETALHES ------*/
 
     .jl-hero {
-        height: 500px;
         background-image: url('../pages/portfolio/img/hero.png');
         background-repeat: no-repeat;
         background-size: cover;
@@ -703,36 +862,35 @@ p, label {
     }
 
     .jl-hero-inner {
-        height: 500px;
-        position: relative;
+        display: table;
+        padding: 65px 0;
     }
 
     .jl-hero-inner-content {
-        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        display: block;
+        padding: 15px 25px 15px;
     }
 
     .jl-hero-inner-content p  {
         margin-bottom: 15px;
     }
 
-    .jl-hero-inner-content:before {
-        content: '';
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.85);
-        display: block;
-        position: absolute;
-        left: -65px;
-        top: -65px;
-        box-sizing: content-box;
-        padding: 65px;
-    }
 
     .jl-project-stats {
         width: 100%;
         height: 100%;
         display: table;
-        border-right: 1px solid #2CCB69;
+        border-right: none;
+    }
+
+    .jl-project-description {
+        width: 100%;
+        height: 100%;
+        display: table;
+        margin-top: 30px;
     }
 
     .jl-post {
@@ -763,8 +921,35 @@ p, label {
         top: -270px;
     }
 
+    .jl-thumb-box {
+        width: auto;
+        display: block;
+        position: relative;
+    }
+
+    .jl-thumb-box:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        z-index: 700;
+        background-color: rgba(44, 203, 105, 0.85);
+        background-image: url('../images/icon-see-more.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+    }
+
+    .jl-thumb-box:hover:before {
+        display: block;
+        cursor: pointer;
+    }
+
     .jl-gallery-frame-container {
-        width: 400px;
+        width: 60%;
         display: none;
         position:fixed;
         top: 30px;
@@ -858,9 +1043,27 @@ p, label {
         margin: 0 auto;
         display: block;
         z-index: 1200;
-        border-radius: 30px;
+        border-radius: 22px;
         position: relative;
-        top: 20px;
+        top: 14px;
+    }
+
+    /* ---------- 404 ------------ */
+
+    .jl-404 h1, .jl-404 p {
+        text-align: center;
+    }
+
+    .jl-404 .jl-btn {
+        margin: 15px auto;
+    }
+
+    .jl-404 img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
     }
 
     /* Utilitárias */
@@ -868,10 +1071,55 @@ p, label {
         font-size: 90px;
     }
 
+    .jl-title-large {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .jl-full-height {
+        height: auto;
+        position: relative;
+    }
+
+    .jl-text-center-mob {
+        text-align: center;
+    }
+
+
+}
+
+@media screen and (min-width: 360px) {
+
+    .jl-gallery-frame-container {
+        width: 70%;
+    }
+
+}
+
+@media screen and (min-width: 400px) {
+
+    .jl-avatar-sobre {
+        height: 500px;
+    }
+
+    .jl-box.img {
+        width: 370px;
+    }
 
 }
 
 @media screen and (min-width: 576px) {
+
+    .jl-hero-inner-content {
+        padding: 55px 65px 65px;
+    }
+
+    /* ---------- 404 ------------ */
+
+    .jl-404 img {
+        width: 80%;
+        max-width: 80%;
+    }
    
 }
 
@@ -886,6 +1134,18 @@ p, label {
 
     .jl-home-presentation {
         background-size: 80%;
+    }
+
+    .jl-title-large {
+        font-size: 48px;
+    }
+
+    .jl-text-center-mob {
+        text-align: left;
+    }
+
+    .jl-box-img {
+        width: 350px;
     }
     
 }
@@ -962,18 +1222,303 @@ p, label {
     .jl-home-presentation .jl-btn {
         margin-left: 0;
     }
+
+    .jl-portfolio-navigator {
+        width: 145px;
+        height: 400px;
+        left: 15px;
+        top: 26vh;
+    }
+
+    .jl-slider-container {
+        padding-bottom: 0;
+    }
+
+    .jl-slider-list .jl-portfolio-item-thumb {
+        padding: 30px 0 19px 0;
+        margin-top: 45px;
+    }
+
+    .jl-slider-list .jl-portfolio-item-thumb img {
+        width: calc(100% + 45px);
+        max-width: calc(100% + 45px);
+        left: -75px;
+    }
     
+    .jl-slider-list .jl-portfolio-item-thumb > .jl-btn {
+        margin: 17px 6.5% 0 0;
+        float: right;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item {
+        margin-bottom: 100px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info {
+        text-align: right;
+        margin-top: 70px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info .jl-btn {
+        float: right;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info h1, .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-info p {
+        text-align: right;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-info {
+        margin-left: 105px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-info .jl-btn {
+        float: left;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-info h1, .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-info p {
+        text-align: left;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item-thumb {
+        padding: 30px 0 19px 0;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item-thumb img {
+        width: calc(100% + 45px);
+        max-width: calc(100% + 45px);
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb img {
+        left: 30px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-thumb img {
+        left: -75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb .jl-btn {
+        float: left;
+        margin-left: 75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-thumb .jl-btn {
+        float: right;
+        margin-right: 75px;
+    }
+
+    .jl-navigator-counter span {
+        font-size: 100px;
+    }
+
+    .jl-navigator-counter:before {
+        width: 30px;
+    }
+
+    .jl-items-next-prev {
+        justify-content: center;
+    }
+
+    .jl-title-large, .jl-portfolio-list .jl-portfolio-item-info p {
+        text-align: left;   
+    }
+
+    .jl-slider-list .jl-portfolio-item {
+        display: block;
+        height: 500px;
+        float: left;
+        margin-top: calc(26vh - 75px);
+    }
+
+    .jl-slider-list .jl-portfolio-item-info {
+        width: calc(100% - 75px);
+        left: -75px;
+        margin-top: 73px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item-info .jl-btn {
+        margin: 0;
+    }
+
+    .jl-project-stats {
+        border-right: 1px solid #2CCB69;
+    }
+
+
+    .jl-project-description {
+        margin-top: 0;
+    }
+
+    .jl-gallery-frame-container {
+        width: 320px;
+    }
+
+    .jl-gallery-frame-image {
+        top: 17px;
+    }
+
+
+    /* SOBRE */
+
+    .jl-avatar-sobre {
+        height: 100%;
+    }
+
+    .jl-titulo-sobre {
+        width: 100%;
+    }
+
+    .jl-titulo-sobre h1 {
+        font-size: 90px;
+    }
+
+    .jl-info-sobre {
+        width: 55%;
+        padding-left: 30px;
+    }
+
+    .jl-premios-sobre {
+        width: 45%;
+    }
+
+    .jl-box-img {
+        width: 100%;
+        display: table;
+    }
+
+    .jl-404 h1, .jl-404 p {
+        text-align: left;
+    }
+
+    .jl-404 p {
+        margin-top: 40px;
+    }
+
+    .jl-404 .jl-btn {
+        margin-left: 0;
+    }
+
+    .jl-404 img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* UTILITÁRIAS */
+
+    .jl-full-height {
+        height: 100vh;
+    }
+
+
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1024px) {
+
+    .jl-avatar-sobre {
+        height: 500px;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
+
+    .jl-modal {
+        width: 90%;
+    }
+
+    .jl-field, .jl-textarea {
+        margin-bottom: 7px;
+    }
+
+    .jl-title-large {
+        font-size: 64px;
+    }
+
+    .jl-slider-list .jl-portfolio-item-thumb {
+        padding: 75px 0 19px 0;
+        margin-top: 0;
+    }
+
+    .jl-slider-list .jl-portfolio-item-thumb img {
+        width: 100%;
+        max-width: 100%;
+        left: -75px;
+    }
     
+    .jl-slider-list .jl-portfolio-item-thumb > .jl-btn {
+        margin-right: 75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item-thumb {
+        padding: 75px 0 19px 0;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item-thumb img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(even) .jl-portfolio-item-thumb img {
+        left: 75px;
+    }
+
+    .jl-portfolio-list .jl-portfolio-item:nth-child(odd) .jl-portfolio-item-thumb img {
+        left: -75px;
+    }
+
+    .jl-gallery-frame-container {
+        width: 340px;
+    }
+
+    .jl-navigator-counter span {
+        font-size: 120px;
+    }
+
+    .jl-navigator-counter:before {
+        width: 35px;
+    }
+
+    .jl-titulo-sobre h1 {
+        font-size: 120px;
+    }
+
 }
 
 @media screen and (min-width: 1364px) {
+
+    
+    
+}
+
+@media screen and (min-width: 1500px) {
+
+    .jl-info-sobre {
+        width: 43%;
+    }
+
+    .jl-premios-sobre {
+        width: 31%;
+    }
     
 }
 
 @media screen and (min-width: 1600px) {
+
+    .jl-gallery-frame-container {
+        width: 400px;
+    }
+    
+}
+
+@media screen and (min-width: 1740px) {
+
+    .jl-info-sobre {
+        width: 35%;
+    }
+
+    .jl-premios-sobre {
+        width: 31%;
+    }
     
 }
 
@@ -989,6 +1534,7 @@ p, label {
     transition: all 0.2s ease-out;
     text-transform: lowercase;
     position: relative;
+    text-decoration: none;
 }
 
 .jl-btn ion-icon {
@@ -1066,11 +1612,6 @@ p, label {
 
 .jl-title-medium {
     font-size: 48px;
-}
-
-
-.jl-title-large {
-    font-size: 64px;
 }
 
 .jl-text-green {
@@ -1189,10 +1730,6 @@ p, label {
     padding-left: 30px;
 }
 
-.jl-full-height {
-    height: 100vh;
-    position: relative;
-}
 
 .jl-first-section {
     height: calc(100vh - 30px);
@@ -1203,10 +1740,6 @@ p, label {
     padding: 0!important;
 }
 
-.jl-box-img {
-    width: 100%;
-    display: table;
-}
 
 .jl-img-responsive {
     width: 100%;
@@ -1299,4 +1832,10 @@ p, label {
 
 .green {
     background-color: green;
+}
+
+/* PLUGINS OVERWRITE */
+
+[data-aos=flip-left] {
+    transform: perspective(2500px) rotateY(-90deg);
 }

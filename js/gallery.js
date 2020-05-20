@@ -1,13 +1,18 @@
 var overlay = document.querySelector('.jl-overlay');
 var frameImage = document. querySelector ('.jl-gallery-frame-image');
 var frameContainer = document. querySelector ('.jl-gallery-frame-container');
-var galleryImages = document.querySelectorAll ('.jl-thumb-img');
+var galleryImages = document.querySelectorAll ('.jl-thumb-box');
 var closeGallery = document.querySelectorAll ('.jl-toggle-gallery');
 var btnNext = document.querySelector('.jl-item-next');
 var btnPrev = document.querySelector('.jl-item-prev');
 var currCounter = document.querySelector('.jl-current-slide');
 var totalCounter = document.querySelector('.jl-total-slide');
 var skeletonLoading = document.querySelector ('.jl-skeleton-loading');
+
+// Diminuindo o tamanho vertical na página para não ficar sobrando
+var postGallery = document.querySelector('.jl-post-gallery');
+var postGalleryHeight = postGallery.clientHeight;
+postGallery.style.height = (postGalleryHeight - 270) +'px';
 
 //Counter Formater
 var counterFormater = function(n){
@@ -39,8 +44,8 @@ const skeletonAnim = function (imagem) {
 const getImageSrc = function () {
     for(var i = 0; i < galleryImages.length; i++)  {
         galleryImages[i].addEventListener('click', function () {
-            var imageSrc = this.getAttribute('data-src');
-            var itemNum = this.getAttribute('data-item');
+            var imageSrc = this.querySelector('img').getAttribute('data-src');
+            var itemNum = this.querySelector('img').getAttribute('data-item');
 
             skeletonLoading.style.display = 'flex';
 
@@ -77,7 +82,7 @@ const nextItem = function () {
 
     //Fazemos o Loop e identificamos qual item faz match com o número do próximo item
     for (var n = 0; n < galleryImages.length; n++) {
-        var item = galleryImages[n];
+        var item = galleryImages[n].querySelector('img');
         var itemNum = parseInt(item.getAttribute('data-item'));
 
         if(itemNum === nextItemNum){
